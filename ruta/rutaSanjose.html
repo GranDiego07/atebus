@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta San José | AteBus</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f5f9;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { color: #3498db; font-size: 28px; font-weight: bold; }
+        nav ul { display: flex; gap: 25px; list-style: none; }
+        nav a { color: white; text-decoration: none; font-size: 16px; }
+        nav a:hover { color: #3498db; }
+
+        .header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+        .header h1 { font-size: 46px; margin-bottom: 10px; }
+        .header p { font-size: 22px; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #ddd;
+        }
+        .tab-button {
+            padding: 14px 28px;
+            background: none;
+            border: none;
+            font-size: 17px;
+            cursor: pointer;
+            color: #7f8c8d;
+            font-weight: 600;
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab-button.active, .tab-button:hover {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fade 0.5s; }
+        @keyframes fade { from {opacity: 0;} to {opacity: 1;} }
+
+        table {
+            width: 100%;
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        th {
+            background: #e74c3c;
+            color: white;
+            padding: 18px;
+            font-size: 21px;
+        }
+        td {
+            padding: 14px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 500;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover { background-color: #fff5f5; }
+        .r27 { color: #e67e22; font-weight: bold; }
+        .nota { font-size: 14px; color: #777; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            th, td { font-size: 15px; padding: 10px; }
+            .header h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AteBus</div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Rutas</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>Ruta San José ↔ Atenas</h1>
+        <p>Costo del pasaje: ₡1 335 • Horarios actualizados 2025</p>
+    </div>
+
+    <div class="container">
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event,'lunes')">Lunes a Viernes</button>
+            <button class="tab-button" onclick="openTab(event,'sabado')">Sábado</button>
+            <button class="tab-button" onclick="openTab(event,'domingo')">Domingo y Feriado</button>
+        </div>
+
+        <!-- LUNES A VIERNES -->
+        <div id="lunes" class="tab-content active">
+            <div class="grid">
+                <table>
+                    <thead><tr><th>Sale de San José</th></tr></thead>
+                    <tbody>
+                        <tr><td>5:40 a.m.</td></tr>
+                        <tr><td>6:05 a.m.</td></tr>
+                        <tr><td>6:30 a.m.</td></tr>
+                        <tr><td>7:30 a.m.</td></tr>
+                        <tr><td>8:30 a.m.</td></tr>
+                        <tr><td>9:00 a.m.</td></tr>
+                        <tr><td>10:00 a.m.</td></tr>
+                        <tr><td>11:00 a.m.</td></tr>
+                        <tr><td>12:00 m.</td></tr>
+                        <tr><td>1:45 p.m.</td></tr>
+                        <tr><td>2:15 p.m.</td></tr>
+                        <tr><td>3:00 p.m.</td></tr>
+                        <tr><td>3:30 p.m.</td></tr>
+                        <tr><td>4:00 p.m.</td></tr>
+                        <tr><td>4:50 p.m.</td></tr>
+                        <tr><td>5:45 p.m. <span class="r27">R27</span></td></tr>
+                        <tr><td>6:00 p.m.</td></tr>
+                        <tr><td>7:00 p.m.</td></tr>
+                        <tr><td>8:30 p.m. <span class="nota">vía Alajuela</span></td></tr>
+                        <tr><td>10:00 p.m. <span class="nota">vía Alajuela</span></td></tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <thead><tr><th>Sale de Atenas</th></tr></thead>
+                    <tbody>
+                        <tr><td>4:15 a.m.</td></tr>
+                        <tr><td>4:30 a.m. <span class="nota">Aeropuerto</span></td></tr>
+                        <tr><td>4:50 a.m.</td></tr>
+                        <tr><td>5:30 a.m. <span class="nota">vía Alajuela</span></td></tr>
+                        <tr><td>5:35 a.m. <span class="r27">R27</span></td></tr>
+                        <tr><td>5:50 a.m. <span class="r27">R27</span></td></tr>
+                        <tr><td>6:00 a.m.</td></tr>
+                        <tr><td>7:00 a.m.</td></tr>
+                        <tr><td>8:00 a.m.</td></tr>
+                        <tr><td>9:00 a.m.</td></tr>
+                        <tr><td>10:00 a.m.</td></tr>
+                        <tr><td>11:00 a.m.</td></tr>
+                        <tr><td>11:45 a.m. <span class="r27">R27</span></td></tr>
+                        <tr><td>12:00 m.</td></tr>
+                        <tr><td>1:00 p.m.</td></tr>
+                        <tr><td>2:00 p.m.</td></tr>
+                        <tr><td>3:15 p.m.</td></tr>
+                        <tr><td>4:00 p.m.</td></tr>
+                        <tr><td>5:30 p.m.</td></tr>
+                        <tr><td>7:00 p.m.</td></tr>
+                        <tr><td>8:30 p.m. <span class="nota">vía Alajuela</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SÁBADO -->
+        <div id="sabado" class="tab-content">
+            <div class="grid">
+                <table>
+                    <thead><tr><th>Sale de San José</th></tr></thead>
+                    <tbody>
+                        <tr><td>6:00 a.m.</td></tr>
+                        <tr><td>7:00 a.m.</td></tr>
+                        <tr><td>9:00 a.m.</td></tr>
+                        <tr><td>11:00 a.m.</td></tr>
+                        <tr><td>12:00 m.</td></tr>
+                        <tr><td>1:00 p.m.</td></tr>
+                        <tr><td>2:00 p.m.</td></tr>
+                        <tr><td>3:00 p.m.</td></tr>
+                        <tr><td>4:00 p.m.</td></tr>
+                        <tr><td>5:00 p.m.</td></tr>
+                        <tr><td>6:00 p.m.</td></tr>
+                        <tr><td>7:00 p.m.</td></tr>
+                        <tr><td>10:00 p.m. <span class="nota">vía Alajuela</span></td></tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <thead><tr><th>Sale de Atenas</th></tr></thead>
+                    <tbody>
+                        <tr><td>4:30 a.m.</td></tr>
+                        <tr><td>5:00 a.m. <span class="nota">vía Alajuela</span></td></tr>
+                        <tr><td>6:00 a.m.</td></tr>
+                        <tr><td>7:00 a.m.</td></tr>
+                        <tr><td>8:00 a.m.</td></tr>
+                        <tr><td>9:00 a.m.</td></tr>
+                        <tr><td>10:30 a.m.</td></tr>
+                        <tr><td>12:00 m.</td></tr>
+                        <tr><td>1:00 p.m.</td></tr>
+                        <tr><td>2:00 p.m.</td></tr>
+                        <tr><td>3:00 p.m.</td></tr>
+                        <tr><td>4:00 p.m.</td></tr>
+                        <tr><td>5:00 p.m.</td></tr>
+                        <tr><td>7:00 p.m. <span class="nota">vía Alajuela</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- DOMINGO Y FERIADO -->
+        <div id="domingo" class="tab-content">
+            <div class="grid">
+                <table>
+                    <thead><tr><th>Sale de San José</th></tr></thead>
+                    <tbody>
+                        <tr><td>6:30 a.m.</td></tr>
+                        <tr><td>9:00 a.m.</td></tr>
+                        <tr><td>10:00 a.m.</td></tr>
+                        <tr><td>11:00 a.m.</td></tr>
+                        <tr><td>1:00 p.m.</td></tr>
+                        <tr><td>3:00 p.m.</td></tr>
+                        <tr><td>4:40 p.m.</td></tr>
+                        <tr><td>5:40 p.m.</td></tr>
+                        <tr><td>7:00 p.m.</td></tr>
+                        <tr><td>10:00 p.m. <span class="nota">vía Alajuela</span></td></tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <thead><tr><th>Sale de Atenas</th></tr></thead>
+                    <tbody>
+                        <tr><td>5:00 a.m. <span class="nota">vía Alajuela</span></td></tr>
+                        <tr><td>7:00 a.m.</td></tr>
+                        <tr><td>8:00 a.m.</td></tr>
+                        <tr><td>9:00 a.m.</td></tr>
+                        <tr><td>10:30 a.m.</td></tr>
+                        <tr><td>12:00 m.</td></tr>
+                        <tr><td>2:00 p.m.</td></tr>
+                        <tr><td>4:00 p.m.</td></tr>
+                        <tr><td>5:00 p.m.</td></tr>
+                        <tr><td>7:00 p.m. <span class="nota">vía Alajuela</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2025 AteBus - Orgullosamente Atenienses • Información actualizada noviembre 2025</p>
+    </footer>
+
+<script src="../javascript.js"></script>
+</body>
+</html>

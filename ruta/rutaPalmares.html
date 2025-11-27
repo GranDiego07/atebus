@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta Palmares | AteBus</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f5f9;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { color: #3498db; font-size: 28px; font-weight: bold; }
+        nav ul { display: flex; gap: 25px; list-style: none; }
+        nav a { color: white; text-decoration: none; font-size: 16px; }
+        nav a:hover { color: #3498db; }
+
+        .header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .header h1 { font-size: 42px; margin-bottom: 10px; }
+        .header p { font-size: 20px; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #ddd;
+        }
+        .tab-button {
+            padding: 14px 28px;
+            background: none;
+            border: none;
+            font-size: 17px;
+            cursor: pointer;
+            color: #7f8c8d;
+            font-weight: 600;
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab-button.active, .tab-button:hover {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fade 0.5s; }
+        @keyframes fade { from {opacity: 0;} to {opacity: 1;} }
+
+        table {
+            width: 100%;
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        th {
+            background: #3498db;
+            color: white;
+            padding: 18px;
+            font-size: 21px;
+        }
+        td {
+            padding: 16px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover { background-color: #f8fbff; }
+        .nota { color: #e74c3c; font-weight: bold; font-size: 15px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            th, td { font-size: 16px; padding: 12px; }
+            .header h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AteBus</div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Rutas</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>Ruta Palmares</h1>
+        <p>Costo del pasaje: ₡430 • Horarios actualizados 2025</p>
+    </div>
+
+    <div class="container">
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event,'lunes')">Lunes a Viernes</button>
+            <button class="tab-button" onclick="openTab(event,'sabado')">Sábado</button>
+            <button class="tab-button" onclick="openTab(event,'domingo')">Domingo y Feriado</button>
+        </div>
+
+        <!-- LUNES A VIERNES -->
+        <div id="lunes" class="tab-content active">
+            <div class="grid">
+                <table>
+                    <thead><tr><th>Sale de Atenas</th></tr></thead>
+                    <tbody>
+                        <tr><td>5:50 a.m. → Palmares</td></tr>
+                        <tr><td>8:00 a.m. → Palmares <span class="nota">*</span></td></tr>
+                        <tr><td>11:00 a.m. → Palmares</td></tr>
+                        <tr><td>2:30 p.m. → Palmares <span class="nota">*</span></td></tr>
+                        <tr><td>4:10 p.m. → Palmares</td></tr>
+                        <tr><td>5:40 p.m. → Palmares</td></tr>
+                        <tr><td>6:30 p.m. → Palmares <span class="nota">*</span></td></tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <thead><tr><th>Sale de Palmares</th></tr></thead>
+                    <tbody>
+                        <tr><td>5:50 a.m. → Atenas</td></tr>
+                        <tr><td>7:00 a.m. → Atenas</td></tr>
+                        <tr><td>12:15 p.m. → Atenas</td></tr>
+                        <tr><td>2:30 p.m. → Atenas <span class="nota">*</span></td></tr>
+                        <tr><td>4:40 p.m. → Atenas</td></tr>
+                        <tr><td>5:45 p.m. → Atenas</td></tr>
+                        <tr><td>7:30 p.m. → Atenas <span class="nota">*</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center; color:#e67e22; margin-top:10px;">
+                <strong>*</strong> Horario aproximado o solo ciertos días
+            </p>
+        </div>
+
+        <!-- SÁBADO -->
+        <div id="sabado" class="tab-content">
+            <div class="grid">
+                <table>
+                    <thead><tr><th>Sale de Atenas</th></tr></thead>
+                    <tbody>
+                        <tr><td>6:00 a.m. → Los Ángeles → Palmares</td></tr>
+                        <tr><td>9:00 a.m. → Los Ángeles → Palmares</td></tr>
+                        <tr><td>2:30 p.m. → Palmares</td></tr>
+                        <tr><td>5:30 p.m. → Los Ángeles → Palmares</td></tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <thead><tr><th>Sale de Palmares</th></tr></thead>
+                    <tbody>
+                        <tr><td>7:00 a.m. → Atenas</td></tr>
+                        <tr><td>12:15 p.m. → Atenas</td></tr>
+                        <tr><td>4:30 p.m. → Los Ángeles → Atenas</td></tr>
+                        <tr><td>6:30 p.m. → Atenas</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- DOMINGO Y FERIADO -->
+        <div id="domingo" class="tab-content">
+            <div class="grid">
+                <table>
+                    <thead><tr><th>Sale de Atenas</th></tr></thead>
+                    <tbody>
+                        <tr><td>6:30 a.m. → Los Ángeles → Palmares</td></tr>
+                        <tr><td>9:00 a.m. → Los Ángeles → Palmares</td></tr>
+                        <tr><td>5:30 p.m. → Los Ángeles → Palmares</td></tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <thead><tr><th>Sale de Palmares</th></tr></thead>
+                    <tbody>
+                        <tr><td>8:00 a.m. → Los Ángeles → Atenas</td></tr>
+                        <tr><td>4:30 p.m. → Los Ángeles → Atenas</td></tr>
+                        <tr><td>6:30 p.m. → Atenas</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2025 AteBus - Orgullosamente Atenienses • Información actualizada noviembre 2025</p>
+    </footer>
+<script src="../javascript.js"></script>
+</body>
+</html>
