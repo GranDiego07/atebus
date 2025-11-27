@@ -1,0 +1,21 @@
+{
+  "ruta": "Palmares ↔ Atenas",
+  "empresa": "Coopetransatenas R.L.",
+  "tarifa": 430,
+  "actualizado": "26 noviembre 2025",
+
+  "horarios": {
+    "lunes_a_viernes": {
+      "desde_palmares": ["05:50 AM","7:00 AM","12:15 MD","2:30 PM","4:40 PM","5:45 PM", "7:30 PM"],
+      "desde_atenas": ["05:50 AM","8:00 AM","11:00 AM","2:30 PM","4:10 PM","5:40 PM", "6:30 PM"]
+    },
+    "sabado": {
+      "desde_palmares": ["6:00 AM", "7:30 AM", "9:00 AM", "10:30 AM", "12:00 PM", "1:30 PM", "3:00 PM", "4:30 PM", "6:00 PM", "8:00 PM"],
+      "desde_atenas": ["5:00 AM", "6:30 AM", "8:00 AM", "9:30 AM", "11:00 AM", "12:30 PM", "2:00 PM", "3:30 PM", "5:00 PM", "7:00 PM"]
+    },
+    "domingo_y_feriados": {
+      "desde_palmares": ["6:30 AM", "8:30 AM", "10:30 AM", "1:00 PM", "3:30 PM", "6:00 PM"],
+      "desde_atenas": ["5:30 AM", "7:30 AM", "9:30 AM", "12:00 PM", "2:30 PM", "5:00 PM"]
+    }
+  }
+}
