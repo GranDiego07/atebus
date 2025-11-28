@@ -1,0 +1,23 @@
+{
+  "ruta": "Estanquillos ↔ Atenas",
+  "empresa": "Coopetransatenas R.L.",
+  "tarifa": 430,
+  "actualizado": "26 noviembre 2025",
+
+  "horarios": {
+    "lunes_a_viernes": {
+      "desde_Candelaria": ["5:35 AM",{"hora":"7:50 AM","nota":"Alto M."},{"hora":"9:15 AM","nota":"Estan"},{"hora":"12:00 MD","nota":"Estan"},{"hora":"2:30 PM","nota":"Estan"},{"hora":"4:30 PM","nota":"Estan"},"5:30 PM"],
+      "desde_palmares": ["5:00 AM","6:05 AM",{"hora":"8:05 AM","nota":"Alto M."},"9:45 AM","12:30 MD","3:00 PM","5:00 PM","6:00 PM"]
+    },
+    "sabado": {
+      "desde_Candelaria": ["6:00 AM", "7:30 AM", "9:00 AM", "10:30 AM", "12:00 PM", "1:30 PM", "3:00 PM", "4:30 PM", "6:00 PM", "8:00 PM"],
+      "desde_palmares": ["5:00 AM", "6:30 AM", "8:00 AM", "9:30 AM", "11:00 AM", "12:30 PM", "2:00 PM", "3:30 PM", "5:00 PM", "7:00 PM"]
+    },
+    "domingo_y_feriados": {
+      "desde_Candelaria": ["6:30 AM", "8:30 AM", "10:30 AM", "1:00 PM", "3:30 PM", "6:00 PM"],
+      "desde_palmares": ["5:30 AM", "7:30 AM", "9:30 AM", "12:00 PM", "2:30 PM", "5:00 PM"]
+    }
+  }
+}
+
+
