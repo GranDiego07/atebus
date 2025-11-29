@@ -6,8 +6,8 @@
 
   "horarios": {
     "lunes_a_viernes": {
-      "desde_santaeulalia": ["04:55","05:50","07:10","09:40","01:20","03:50"],
-      "desde_atenas": ["05:30","06:55","09:25","12:00","15:30","17:15"]
+      "desde_santaeulalia": ["04:55 AM","05:50 AM","07:10 AM","09:40 AM","01:20 PM","03:50 PM"],
+      "desde_atenas": ["05:30 AM","06:55 AM","09:25 AM","12:00 MD","3:30 PM","5:15 PM"]
     },
     "sabado": {
       "desde_santaeulalia": ["6:55  AM","9:25  AM","12:00 MD","3:30 PM","05:00 PM"],

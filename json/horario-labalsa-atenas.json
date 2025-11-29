@@ -1,0 +1,26 @@
+{
+  "ruta": "La Balsa ↔ Atenas",
+  "empresa": "Buses Ivan",
+  "tarifa": 480,
+  "actualizado": "26 noviembre 2025",
+
+  "horarios": {
+    "lunes_a_viernes": {
+      "desde_labalsa": ["5:25 AM","6:15 AM","6:20 AM","7:20 PM","8:00 AM", "9:30 AM", "11:15 AM", "1:00 PM","2:45 PM","3:30 PM","4:30 PM","5:40 PM","6:40 PM"],
+      "desde_atenas": ["04:55 AM","5:45 AM","6:00 AM","6:50 AM","07:00 AM","09:00 AM","10:30 AM","12:00 MD","2:00 PM","2:45 PM","3:45 PM","5:00 PM","6:00 PM"]
+    },
+    "sabado": {
+      "desde_labalsa":  ["5:25 AM","7:30 PM","9:30 AM", "11:15 AM", "1:00 PM","2:45 PM","4:30 PM","6:00 PM"],
+      "desde_atenas":["04:55 AM","07:00 AM","09:00 AM","10:30 AM","12:00 MD","2:00 PM","3:45 PM","5:25 PM"]
+    },
+    "domingo_y_feriados": {
+      "desde_labalsa":  ["6:15 AM","7:30 PM","9:30 AM", "11:15 AM", "1:00 PM","4:30 PM","6:00 PM"],
+      "desde_atenas": ["6:00 AM","07:00 AM","09:00 AM","10:30 AM","12:00 MD","3:45 PM","5:25 PM"]
+    }
+  }
+}
+
+
+
+
+
