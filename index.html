@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Horarios actualizados 2025 de buses en Atenas, Costa Rica. Todas las rutas: Alajuela, San José, Palmares y más.">
+    <meta name="description" content="Horarios actualizados 2025 de buses en Atenas, Costa Rica.">
     <title>AteBus • Horarios de Buses en Atenas 2025</title>
     <link rel="stylesheet" href="estilo.css">
-    <!--<link rel="icon" href="img/logo.png" type="image/png">-->
 </head>
 <body>
-
     <!-- NAVEGACIÓN -->
     <nav>
         <div class="nav-container">
-            <div class=""><a href="index.html">AteBus</a></div>
+            <div class="logo"><a href="index.html">AteBus</a></div>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="acerca.html">Acerca de</a></li>
@@ -23,25 +21,25 @@
         </div>
     </nav>
 
-    <!-- CARRUSEL PRINCIPAL -->
+    <!-- CARRUSEL -->
     <div class="carrusel">
         <div class="slides">
             <div class="slide active">
-                <img src="img/paradacoopetransatenas.png" alt="Terminal de Bus Coopetransatenas">
+                <img src="img/paradacoopetransatenas.png" alt="Terminal de Bus Coopetransatenas" onerror="this.src='https://via.placeholder.com/1200x600/3498db/ffffff?text=Terminal+Atenas';">
                 <div class="caption">
                     <h2>Horarios actualizados 2025</h2>
                     <p>Todas las rutas de Atenas en un solo lugar</p>
                 </div>
             </div>
             <div class="slide">
-                <img src="img/terminalbusesmercado.png" alt="Terminal de Bus del Mercado">
+                <img src="img/terminalbusesmercado.png" alt="Terminal de Bus del Mercado" onerror="this.src='https://via.placeholder.com/1200x600/2c3e50/ffffff?text=Bus+en+Ruta';">
                 <div class="caption">
                     <h2>Información confiable y oficial</h2>
                     <p>Directo de Coopetransatenas R.L.</p>
                 </div>
             </div>
             <div class="slide">
-                <img src="img/iglesiaatenas.png" alt="Atenas centro">
+                <img src="img/iglesiaatenas.png" alt="Atenas centro" onerror="this.src='https://via.placeholder.com/1200x600/27ae60/ffffff?text=Centro+de+Atenas';">
                 <div class="caption">
                     <h2>¡Siempre al día!</h2>
                     <p>Actualización: 29 de noviembre 2025</p>
@@ -57,7 +55,7 @@
         </div>
     </div>
 
-    <!-- INTRODUCCIÓN AL PROBLEMA -->
+    <!-- INTRODUCCIÓN -->
     <section class="intro container">
         <div class="intro-content">
             <h2>El problema que resolvemos</h2>
@@ -67,95 +65,66 @@
         </div>
     </section>
 
-    <!-- RUTAS DISPONIBLES (cargadas desde JSON) -->
+    <!-- RUTAS -->
     <section class="container rutas-section">
         <h2>Rutas Disponibles</h2>
         <div id="rutas-container" class="services-grid">
-            <!-- Se llenan automáticamente con JavaScript -->
             <div style="grid-column:1/-1; text-align:center; padding:60px; color:#7f8c8d;">
                 <p>Cargando rutas...</p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2025 <strong>AteBus</strong> • Proyecto creado con amor para los atenienses</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // ========= CARRUSEL =========
+        // CARRUSEL (versión robusta)
         let slideIndex = 0;
-        showSlides();
+        const totalSlides = 3;
 
-        function showSlides() {
+        function showSlide(n) {
             const slides = document.querySelectorAll('.slide');
             const dots = document.querySelectorAll('.dot');
-            
             slides.forEach(s => s.classList.remove('active'));
             dots.forEach(d => d.classList.remove('active'));
-            
-            slideIndex++;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            
+            slideIndex = (n + totalSlides) % totalSlides;
             slides[slideIndex].classList.add('active');
             dots[slideIndex].classList.add('active');
         }
 
-        // Navegación manual
-        document.querySelector('.next').addEventListener('click', () => {
-            slideIndex++;
-            if (slideIndex >= document.querySelectorAll('.slide').length) slideIndex = 0;
-            showSlides();
-        });
+        // Inicial
+        showSlide(0);
 
-        document.querySelector('.prev').addEventListener('click', () => {
-            slideIndex--;
-            if (slideIndex < 0) slideIndex = document.querySelectorAll('.slide').length - 1;
-            showSlides();
-        });
+        // Controles
+        document.querySelector('.next').onclick = () => showSlide(slideIndex + 1);
+        document.querySelector('.prev').onclick = () => showSlide(slideIndex - 1);
+        document.querySelectorAll('.dot').forEach((dot, i) => dot.onclick = () => showSlide(i));
 
-        document.querySelectorAll('.dot').forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                slideIndex = i;
-                showSlides();
-            });
-        });
+        // Auto-avance
+        setInterval(() => showSlide(slideIndex + 1), 7000);
 
-        // Auto-avance cada 7 segundos
-        setInterval(showSlides, 7000);
-
-        // ========= CARGAR RUTAS DESDE JSON =========
-        fetch('json/rutas.json')
-            .then(response => {
-                if (!response.ok) throw new Error('No se encontró rutas.json');
-                return response.json();
-            })
+        // RUTAS DESDE JSON
+        fetch('/atebus/json/rutas.json')
+            .then(r => r.json())
             .then(data => {
                 const container = document.getElementById('rutas-container');
-                container.innerHTML = ''; // Limpiar el "Cargando..."
-
+                container.innerHTML = '';
                 data.rutas.forEach(ruta => {
-                    const card = document.createElement('div');
-                    card.className = 'service-card';
-                    card.innerHTML = `
-                        <a href="${ruta.archivo}">
-                            <h3>${ruta.nombre}</h3>
-                            <p>${ruta.info}</p>
-                        </a>
+                    container.innerHTML += `
+                        <div class="service-card">
+                            <a href="/atebus/${ruta.archivo}">
+                                <h3>${ruta.nombre}</h3>
+                                <p>${ruta.info}</p>
+                            </a>
+                        </div>
                     `;
-                    container.appendChild(card);
                 });
             })
-            .catch(err => {
-                document.getElementById('rutas-container').innerHTML = `
-                    <div style="grid-column:1/-1; background:white; padding:50px; border-radius:12px; text-align:center; color:#e74c3c;">
-                        <h3>Error al cargar las rutas</h3>
-                        <p>Asegúrate de tener el archivo <strong>json/rutas.json</strong></p>
-                    </div>
-                `;
-                console.error(err);
+            .catch(() => {
+                document.getElementById('rutas-container').innerHTML = 
+                    '<div style="grid-column:1/-1;background:white;padding:50px;border-radius:12px;text-align:center;color:#e74c3c;"><h3>Sube json/rutas.json para ver rutas</h3></div>';
             });
     </script>
 </body>
