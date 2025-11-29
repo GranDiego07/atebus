@@ -11,7 +11,7 @@
     <!-- NAVEGACIÓN -->
     <nav>
         <div class="nav-container">
-            <div class="logo"><a href="index.html">AteBus</a></div>
+            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="AteBus Logo"></a></div>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="acerca.html">Acerca de</a></li>
@@ -24,22 +24,25 @@
     <!-- CARRUSEL -->
     <div class="carrusel">
         <div class="slides">
-            <div class="slide active">
-                <img src="img/paradacoopetransatenas.png" alt="Terminal de Bus Coopetransatenas" onerror="this.src='https://via.placeholder.com/1200x600/3498db/ffffff?text=Terminal+Atenas';">
+            <div class="slide">
+                <img src="img/paradacoopetransatenas.png" alt="Terminal de Bus Coopetransatenas" 
+                     onerror="this.src='https://via.placeholder.com/1200x600/3498db/ffffff?text=Terminal+Atenas';">
                 <div class="caption">
                     <h2>Horarios actualizados 2025</h2>
                     <p>Todas las rutas de Atenas en un solo lugar</p>
                 </div>
             </div>
             <div class="slide">
-                <img src="img/terminalbusesmercado.png" alt="Terminal de Bus del Mercado" onerror="this.src='https://via.placeholder.com/1200x600/2c3e50/ffffff?text=Bus+en+Ruta';">
+                <img src="img/terminalbusesmercado.png" alt="Terminal de Bus del Mercado" 
+                     onerror="this.src='https://via.placeholder.com/1200x600/2c3e50/ffffff?text=Bus+en+Ruta';">
                 <div class="caption">
                     <h2>Información confiable y oficial</h2>
                     <p>Directo de Coopetransatenas R.L.</p>
                 </div>
             </div>
             <div class="slide">
-                <img src="img/iglesiaatenas.png" alt="Atenas centro" onerror="this.src='https://via.placeholder.com/1200x600/27ae60/ffffff?text=Centro+de+Atenas';">
+                <img src="img/iglesiaatenas.png" alt="Atenas centro" 
+                     onerror="this.src='https://via.placeholder.com/1200x600/27ae60/ffffff?text=Centro+de+Atenas';">
                 <div class="caption">
                     <h2>¡Siempre al día!</h2>
                     <p>Actualización: 29 de noviembre 2025</p>
@@ -80,37 +83,68 @@
     </footer>
 
     <script>
-        // CARRUSEL (versión robusta)
+        // ============================================================
+        // CARRUSEL - Script Principal
+        // ============================================================
+        
+        // Variables globales
         let slideIndex = 0;
         const totalSlides = 3;
-
+        const slidesContainer = document.querySelector('.slides');
+        const slideElements = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        // Función para mostrar el slide actual
         function showSlide(n) {
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.dot');
-            slides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
+            // Ajusta el índice para que sea cíclico (0-2)
             slideIndex = (n + totalSlides) % totalSlides;
-            slides[slideIndex].classList.add('active');
+            
+            // Calcula el desplazamiento en porcentaje
+            // Si slideIndex es 0 → 0%, si es 1 → -100%, si es 2 → -200%
+            const offset = -slideIndex * 100;
+            
+            // Aplica la transformación para desplazar los slides
+            slidesContainer.style.transform = `translateX(${offset}%)`;
+            
+            // Actualiza los puntos indicadores
+            dots.forEach(dot => dot.classList.remove('active'));
             dots[slideIndex].classList.add('active');
         }
-
-        // Inicial
+        
+        // Inicializar en el primer slide
         showSlide(0);
+        
+        // Event listener para el botón siguiente
+        document.querySelector('.next').addEventListener('click', () => {
+            showSlide(slideIndex + 1);
+        });
+        
+        // Event listener para el botón anterior
+        document.querySelector('.prev').addEventListener('click', () => {
+            showSlide(slideIndex - 1);
+        });
+        
+        // Event listeners para los puntos
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => showSlide(i));
+        });
+        
+        // Auto-avance cada 7 segundos
+        setInterval(() => {
+            showSlide(slideIndex + 1);
+        }, 7000);
 
-        // Controles
-        document.querySelector('.next').onclick = () => showSlide(slideIndex + 1);
-        document.querySelector('.prev').onclick = () => showSlide(slideIndex - 1);
-        document.querySelectorAll('.dot').forEach((dot, i) => dot.onclick = () => showSlide(i));
-
-        // Auto-avance
-        setInterval(() => showSlide(slideIndex + 1), 7000);
-
-        // RUTAS DESDE JSON
+        // ============================================================
+        // CARGAR RUTAS DESDE JSON
+        // ============================================================
+        
         fetch('json/rutas.json')
             .then(r => r.json())
             .then(data => {
                 const container = document.getElementById('rutas-container');
                 container.innerHTML = '';
+                
+                // Itera sobre cada ruta del JSON
                 data.rutas.forEach(ruta => {
                     container.innerHTML += `
                         <div class="service-card">
@@ -123,8 +157,9 @@
                 });
             })
             .catch(() => {
+                // Si hay error cargando el JSON
                 document.getElementById('rutas-container').innerHTML = 
-                    '<div style="grid-column:1/-1;background:white;padding:50px;border-radius:12px;text-align:center;color:#e74c3c;"><h3>Sube json/rutas.json para ver rutas</h3></div>';
+                    '<div style="grid-column:1/-1;background:white;padding:50px;border-radius:12px;text-align:center;color:#e74c3c;"><h3>Error: No se encontró json/rutas.json</h3></div>';
             });
     </script>
 </body>
