@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruta Altos de Naranjo ↔ Atenas | AteBus 2025</title>
+    <title>Ruta San Jose ↔ Atenas | AteBus 2025</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f5f9; color:#2c3e50; line-height:1.6; }
@@ -64,7 +64,7 @@
     </nav>
 
     <div class="header">
-        <h1>Ruta Altos de Naranjo ↔ Atenas</h1>
+        <h1>Ruta San Jose ↔ Atenas</h1>
         <p>Coopetransatenas • Tarifa ₡430 • Horarios actualizados 2025</p>
     </div>
 
@@ -73,10 +73,10 @@
         <!-- MAPA -->
         <div class="map-section">
             <h2>Mapa de la Ruta</h2>
-            <img src="../img/ruta-altosdenaranjo-atenas.png" alt="Ruta Altos de Naranjo↔ Atenas" class="ruta-img">
+            <img src="../img/ruta-pavas.png" alt="Ruta Pavas ↔ Atenas" class="ruta-img">
             <div class="map-info">
                 <div class="info-box"><strong>Salida</strong> Mercado de Atenas<br><small>Atenas (centro)</small></div>
-                <div class="info-box"><strong>Llegada</strong>Al frente de laAntigua Escuela Altos De Naranjo San Isidro De Atenas <br><small>Fecosa</small></div>
+                <div class="info-box"><strong>Llegada</strong>Supermercado Pavas</div>
                 <div class="info-box"><strong>Duración</strong> 45–55 minutos</div>
                 <div class="info-box"><strong>Tarifa 2025</strong> ₡430</div>
             </div>
@@ -107,9 +107,9 @@
             let tabla = `<table><thead><tr><th>${titulo}</th></tr></thead><tbody>`;
             horarios.forEach(h => {
                 if (typeof h === 'string') {
-                    tabla += `<tr><td>${h} hs</td></tr>`;
+                    tabla += `<tr><td>${h} </td></tr>`;
                 } else {
-                    tabla += `<tr><td>${h.hora} hs <span class="nota">${h.nota}</span></td></tr>`;
+                    tabla += `<tr><td>${h.hora} <span class="nota">${h.nota}</span></td></tr>`;
                 }
             });
             tabla += `</tbody></table>`;
@@ -119,12 +119,12 @@
         function mostrar(dia, data) {
             const h = data.horarios[dia];
             cont.innerHTML = 
-                crearTabla('Sale de Altos De Naranjo', h.desde_altosdenaranjo) + 
+                crearTabla('Sale de Pavas', h.desde_pavas) + 
                 crearTabla('Sale de Atenas', h.desde_atenas);
         }
 
         // Cargar el JSON
-        fetch('../json/horario-altosdenaranjo-atenas.json')
+        fetch('../json/horario-pavas-atenas.json')
             .then(respuesta => respuesta.json())
             .then(data => {
                 // Mostrar horarios de lunes a viernes por defecto
@@ -143,7 +143,7 @@
                 cont.innerHTML = `
                     <div style="grid-column:1/-1; background:white; padding:40px; border-radius:10px; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
                         <h3 style="color:#e74c3c; margin-bottom:10px;">Error al cargar los horarios</h3>
-                        <p style="color:#7f8c8d; font-size:16px;">No se encontró el archivo: <strong>json/horario-altosdenaranjo-atenas.json</strong></p>
+                        <p style="color:#7f8c8d; font-size:16px;">No se encontró el archivo: <strong>json/horario-pavas-atenas.json</strong></p>
                         <p style="color:#95a5a6; font-size:14px; margin-top:15px;">Verifica que el archivo exista en la carpeta correcta.</p>
                     </div>
                 `;
