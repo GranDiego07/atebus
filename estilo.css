@@ -1,9 +1,16 @@
+/* ============================================================
+   ATEBUS - ESTILOS PRINCIPALES
+   Hoja de estilos para la página de horarios de buses
+   ============================================================ */
+
+/* RESET GENERAL - Elimina márgenes y paddings por defecto */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ESTILOS DEL BODY */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
@@ -11,7 +18,11 @@ body {
     color: #333;
 }
 
-/* =============== NAVEGACIÓN =============== */
+/* ============================================================
+   SECCIÓN: NAVEGACIÓN
+   ============================================================ */
+
+/* Contenedor de navegación */
 nav {
     background-color: #2c3e50;
     padding: 20px 0;
@@ -21,6 +32,7 @@ nav {
     z-index: 1000;
 }
 
+/* Contenedor interior de la nav - flexbox para distribuir elementos */
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -31,6 +43,7 @@ nav {
     flex-wrap: wrap;
 }
 
+/* Logo - Enlace principal */
 .logo a {
     font-size: 28px;
     font-weight: bold;
@@ -42,10 +55,12 @@ nav {
     transition: color 0.3s ease;
 }
 
+/* Efecto hover del logo */
 .logo a:hover {
     color: #5ab3f0;
 }
 
+/* Lista de navegación */
 nav ul {
     list-style: none;
     display: flex;
@@ -54,6 +69,7 @@ nav ul {
     justify-content: center;
 }
 
+/* Enlaces de navegación */
 nav a {
     color: white;
     text-decoration: none;
@@ -63,11 +79,16 @@ nav a {
     padding: 8px 0;
 }
 
+/* Efecto hover en los enlaces */
 nav a:hover, nav a:focus {
     color: #3498db;
 }
 
-/* =============== CARRUSEL PRINCIPAL =============== */
+/* ============================================================
+   SECCIÓN: CARRUSEL PRINCIPAL
+   ============================================================ */
+
+/* Contenedor del carrusel - posicionamiento relativo para los controles */
 .carrusel {
     position: relative;
     width: 100%;
@@ -76,13 +97,15 @@ nav a:hover, nav a:focus {
     margin-bottom: 50px;
 }
 
+/* Contenedor de slides - se desplaza con transform */
 .slides {
     display: flex;
-    width: 300%;
+    width: 300%; /* 3 slides = 300% del ancho */
     height: 100%;
-    transition: transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out; /* Suave transición al cambiar */
 }
 
+/* Cada slide individual */
 .slide {
     width: 100%;
     height: 100%;
@@ -90,13 +113,15 @@ nav a:hover, nav a:focus {
     flex-shrink: 0;
 }
 
+/* Imagen del slide */
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(70%);
+    filter: brightness(70%); /* Oscurece la imagen para que el texto sea legible */
 }
 
+/* Caja de texto sobre la imagen */
 .caption {
     position: absolute;
     bottom: 100px;
@@ -105,10 +130,11 @@ nav a:hover, nav a:focus {
     padding: 30px 40px;
     border-radius: 15px;
     max-width: 650px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); /* Efecto de vidrio esmerilado */
     border: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Título del caption */
 .caption h2 {
     font-size: 48px;
     color: white;
@@ -117,13 +143,16 @@ nav a:hover, nav a:focus {
     line-height: 1.2;
 }
 
+/* Descripción del caption */
 .caption p {
     font-size: 22px;
     color: #ecf0f1;
     margin: 0;
 }
 
-/* Flechas del carrusel */
+/* ---- BOTONES DE NAVEGACIÓN DEL CARRUSEL ---- */
+
+/* Estilos compartidos para las flechas */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -139,15 +168,25 @@ nav a:hover, nav a:focus {
     transition: all 0.3s ease;
 }
 
-.prev { left: 20px; }
-.next { right: 20px; }
+/* Posición del botón anterior */
+.prev { 
+    left: 20px; 
+}
 
+/* Posición del botón siguiente */
+.next { 
+    right: 20px; 
+}
+
+/* Efecto hover en botones */
 .prev:hover, .next:hover {
     background: #3498db;
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Puntitos del carrusel */
+/* ---- PUNTOS INDICADORES DEL CARRUSEL ---- */
+
+/* Contenedor de los puntos */
 .dots {
     position: absolute;
     bottom: 25px;
@@ -158,6 +197,7 @@ nav a:hover, nav a:focus {
     gap: 12px;
 }
 
+/* Cada punto indicador */
 .dot {
     height: 14px;
     width: 14px;
@@ -168,54 +208,80 @@ nav a:hover, nav a:focus {
     border: 2px solid transparent;
 }
 
+/* Punto activo o con hover */
 .dot.active, .dot:hover {
     background-color: #3498db;
     border-color: white;
     transform: scale(1.2);
 }
 
-/* =============== CONTENEDORES =============== */
+/* ============================================================
+   SECCIÓN: CONTENEDORES GENERALES
+   ============================================================ */
+
+/* Contenedor reutilizable - limita el ancho máximo y centra */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* =============== SECCIÓN INTRO =============== */
+/* ============================================================
+   SECCIÓN: INTRODUCCIÓN
+   ============================================================ */
+
+/* Envoltorio de la sección intro */
 .intro {
     padding: 60px 0;
-    background: white;
-    text-align: center;
-    margin-bottom: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-.intro h2 {
+/* Contenido interno de intro */
+.intro-content {
+    background: white;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 40px;
+}
+
+/* Título de la sección intro */
+.intro-content h2 {
     font-size: 36px;
     color: #2c3e50;
     margin-bottom: 20px;
 }
 
-.intro p {
+/* Párrafos de intro */
+.intro-content p {
     font-size: 18px;
     color: #555;
     max-width: 900px;
     margin: 0 auto 16px;
 }
 
-.intro p strong {
+/* Texto resaltado (strong) dentro de intro */
+.intro-content p strong {
     color: #3498db;
 }
 
-/* =============== GRID DE RUTAS =============== */
+/* ============================================================
+   SECCIÓN: RUTAS Y GRID DE SERVICIOS
+   ============================================================ */
+
+/* Envoltorio de la sección de rutas */
+.rutas-section {
+    padding: 60px 0;
+}
+
+/* Título de la sección de rutas */
 .rutas-section h2 {
     text-align: center;
     font-size: 32px;
     color: #2c3e50;
-    margin: 60px 0 40px;
+    margin-bottom: 40px;
 }
 
+/* Grid de servicios - 5 columnas */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -223,6 +289,7 @@ nav a:hover, nav a:focus {
     margin: 40px 0;
 }
 
+/* Tarjeta de servicio */
 .service-card {
     background: white;
     border-radius: 14px;
@@ -232,6 +299,7 @@ nav a:hover, nav a:focus {
     border: 1px solid #eee;
 }
 
+/* Enlace dentro de la tarjeta */
 .service-card a {
     display: block;
     padding: 34px 20px;
@@ -242,12 +310,14 @@ nav a:hover, nav a:focus {
     transition: background 0.3s;
 }
 
+/* Efecto hover en la tarjeta */
 .service-card:hover {
-    transform: translateY(-12px);
+    transform: translateY(-12px); /* Sube la tarjeta */
     box-shadow: 0 16px 35px rgba(0,0,0,0.18);
     border-color: #3498db;
 }
 
+/* Nombre de la ruta */
 .service-card h3 {
     color: #2c3e50;
     font-size: 21px;
@@ -255,13 +325,18 @@ nav a:hover, nav a:focus {
     margin-bottom: 8px;
 }
 
+/* Precio/Info de la ruta */
 .service-card p {
     color: #7f8c8d;
     font-size: 15px;
     margin: 0;
 }
 
-/* =============== FOOTER =============== */
+/* ============================================================
+   SECCIÓN: FOOTER
+   ============================================================ */
+
+/* Contenedor del footer */
 footer {
     background-color: #2c3e50;
     color: white;
@@ -271,60 +346,90 @@ footer {
     font-size: 16px;
 }
 
+/* Párrafos del footer */
 footer p {
     margin: 10px 0;
 }
 
+/* Texto resaltado en footer */
 footer strong {
     color: #3498db;
 }
 
-/* =============== RESPONSIVE =============== */
+/* ============================================================
+   RESPONSIVE - TABLETS Y PANTALLAS MEDIANAS
+   ============================================================ */
+
 @media (max-width: 1024px) {
+    /* Reduce el grid a 3 columnas en tablets */
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    
+    /* Reduce el tamaño del texto del caption */
     .caption h2 { font-size: 40px; }
     .caption p { font-size: 20px; }
 }
 
+/* ============================================================
+   RESPONSIVE - DISPOSITIVOS MÓVILES
+   ============================================================ */
+
 @media (max-width: 768px) {
+    /* Navbar en columna en móviles */
     .nav-container {
         flex-direction: column;
         gap: 20px;
         padding: 15px 0;
     }
     
+    /* Reduce el espacio entre links de nav */
     nav ul {
         gap: 20px;
     }
     
+    /* Grid de 2 columnas en móviles */
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    /* Reduce la altura del carrusel */
     .carrusel { height: 60vh; }
+    
+    /* Ajusta la posición del caption */
     .caption {
         bottom: 60px;
         left: 20px;
         right: 20px;
         padding: 20px;
     }
+    
+    /* Reduce el texto del caption en móviles */
     .caption h2 { font-size: 32px; }
     .caption p { font-size: 18px; }
     
-    .intro h2 { font-size: 30px; }
+    /* Reduce el título de intro */
+    .intro-content h2 { font-size: 30px; }
 }
 
+/* ============================================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+   ============================================================ */
+
 @media (max-width: 480px) {
+    /* Grid de 1 columna en móviles muy pequeños */
     .services-grid {
         grid-template-columns: 1fr;
     }
     
+    /* Altura más pequeña del carrusel */
     .carrusel { height: 55vh; }
+    
+    /* Texto más pequeño del caption */
     .caption h2 { font-size: 28px; }
     .caption p { font-size: 16px; }
     
+    /* Botones más pequeños */
     .prev, .next {
         padding: 14px;
         font-size: 24px;
