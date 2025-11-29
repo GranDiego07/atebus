@@ -48,6 +48,12 @@
             th, td { font-size:15px; padding:10px; }
             .grid { grid-template-columns:1fr; }
         }
+        .img-text {
+            font-size: 13px;
+            color: #2c3e50;
+            margin-top: 6px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -73,10 +79,13 @@
         <!-- MAPA -->
         <div class="map-section">
             <h2>Mapa de la Ruta</h2>
-            <img src="../img/ruta-pavas.png" alt="Ruta Pavas ↔ Atenas" class="ruta-img">
+            <img src="../img/ruta-sanjose-general.png" alt="Ruta san Jose ↔ Atenas" class="ruta-img">
+            <p class="img-text">*Ruta normal*</p>
+            <img src="../img/ruta-sanjose27.png" alt="Ruta san Jose ↔ Atenas" class="ruta-img">
+            <p class="img-text">*Ruta por la ruta 27*</p>
             <div class="map-info">
                 <div class="info-box"><strong>Salida</strong> Mercado de Atenas<br><small>Atenas (centro)</small></div>
-                <div class="info-box"><strong>Llegada</strong>Supermercado Pavas</div>
+                <div class="info-box"><strong>Llegada</strong>Mercado la Coca cola</div>
                 <div class="info-box"><strong>Duración</strong> 45–55 minutos</div>
                 <div class="info-box"><strong>Tarifa 2025</strong> ₡430</div>
             </div>
@@ -119,12 +128,12 @@
         function mostrar(dia, data) {
             const h = data.horarios[dia];
             cont.innerHTML = 
-                crearTabla('Sale de Pavas', h.desde_pavas) + 
+                crearTabla('Sale de San Jose', h.desde_sanjose) + 
                 crearTabla('Sale de Atenas', h.desde_atenas);
         }
 
         // Cargar el JSON
-        fetch('../json/horario-pavas-atenas.json')
+        fetch('../json/horario-sanjose-atenas.json')
             .then(respuesta => respuesta.json())
             .then(data => {
                 // Mostrar horarios de lunes a viernes por defecto
@@ -143,7 +152,7 @@
                 cont.innerHTML = `
                     <div style="grid-column:1/-1; background:white; padding:40px; border-radius:10px; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
                         <h3 style="color:#e74c3c; margin-bottom:10px;">Error al cargar los horarios</h3>
-                        <p style="color:#7f8c8d; font-size:16px;">No se encontró el archivo: <strong>json/horario-pavas-atenas.json</strong></p>
+                        <p style="color:#7f8c8d; font-size:16px;">No se encontró el archivo: <strong>json/horario-sanjose-atenas.json</strong></p>
                         <p style="color:#95a5a6; font-size:14px; margin-top:15px;">Verifica que el archivo exista en la carpeta correcta.</p>
                     </div>
                 `;
