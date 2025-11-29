@@ -3,116 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruta Estanquillos | AteBus</title>
+    <title>Ruta Altos de Naranjo ↔ Atenas | AteBus 2025</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f5f9;
-            color: #2c3e50;
-            line-height: 1.6;
-        }
-        nav {
-            background: #2c3e50;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { color: #3498db; font-size: 28px; font-weight: bold; }
-        nav ul { display: flex; gap: 25px; list-style: none; }
-        nav a { color: white; text-decoration: none; font-size: 16px; }
-        nav a:hover { color: #3498db; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f5f9; color:#2c3e50; line-height:1.6; }
 
-        .header {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .header h1 { font-size: 42px; margin-bottom: 10px; }
-        .header p { font-size: 20px; }
+        nav { background:#2c3e50; padding:15px 0; position:sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+        .nav-container { max-width:1200px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
+        .logo { color:#3498db; font-size:28px; font-weight:bold; }
+        nav ul { display:flex; gap:25px; list-style:none; }
+        nav a { color:white; text-decoration:none; font-size:16px; }
+        nav a:hover { color:#3498db; }
 
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .header { background:linear-gradient(135deg,#27ae60,#1e8449); color:white; text-align:center; padding:80px 20px; }
+        .header h1 { font-size:46px; margin-bottom:10px; }
+        .header p { font-size:22px; }
 
-        .tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #ddd;
-        }
-        .tab-button {
-            padding: 14px 28px;
-            background: none;
-            border: none;
-            font-size: 17px;
-            cursor: pointer;
-            color: #7f8c8d;
-            font-weight: 600;
-            border-bottom: 4px solid transparent;
-            transition: all 0.3s;
-        }
-        .tab-button.active, .tab-button:hover {
-            color: #3498db;
-            border-bottom-color: #3498db;
-        }
+        .container { max-width:1100px; margin:40px auto; padding:0 20px; }
 
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fade 0.5s; }
-        @keyframes fade { from {opacity: 0;} to {opacity: 1;} }
+        .map-section { background:white; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.12); padding:25px; margin-bottom:50px; text-align:center; }
+        .map-section h2 { color:#2c3e50; margin-bottom:20px; font-size:26px; }
+        .ruta-img { width:100%; border-radius:10px; box-shadow:0 6px 25px rgba(0,0,0,0.2); }
 
-        table {
-            width: 100%;
-            background: white;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-        th {
-            background: #3498db;
-            color: white;
-            padding: 18px;
-            font-size: 21px;
-        }
-        td {
-            padding: 16px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 500;
-            border-bottom: 1px solid #eee;
-        }
-        tr:hover { background-color: #f8fbff; }
-        .nota { color: #e74c3c; font-weight: bold; font-size: 15px; }
+        .map-info { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:25px; }
+        .info-box { background:#f0f5f9; padding:18px; border-radius:10px; border-left:5px solid #2980b9; }
+        .info-box strong { color:#2980b9; display:block; font-size:18px; margin-bottom:6px; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 30px;
-        }
+        .tabs { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-bottom:35px; border-bottom:3px solid #ddd; padding-bottom:10px; }
+        .tab-button { padding:14px 30px; background:none; border:none; font-size:17px; cursor:pointer; color:#7f8c8d; font-weight:600; border-radius:8px 8px 0 0; transition:all 0.3s; }
+        .tab-button.active, .tab-button:hover { background:#2980b9; color:white; }
 
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 60px;
-        }
+        table { width:100%; background:white; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-bottom:40px; }
+        th { background:#2980b9; color:white; padding:18px; font-size:21px; }
+        td { padding:14px; text-align:center; font-size:17px; border-bottom:1px solid #eee; }
+        tr:hover { background:#f5fbff; }
+        .nota { font-size:13px; color:#16a085; font-weight:bold; }
+        .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:30px; }
 
-        @media (max-width: 768px) {
-            th, td { font-size: 16px; padding: 12px; }
-            .header h1 { font-size: 32px; }
+        footer { background:#2c3e50; color:white; text-align:center; padding:30px; margin-top:80px; font-size:15px; }
+
+        @media (max-width:768px) {
+            .header h1 { font-size:36px; }
+            .header p { font-size:19px; }
+            th, td { font-size:15px; padding:10px; }
+            .grid { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -122,7 +56,7 @@
         <div class="nav-container">
             <div class="logo">AteBus</div>
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="#">Rutas</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
@@ -130,106 +64,92 @@
     </nav>
 
     <div class="header">
-        <h1>Ruta Atenas - Estanquillos</h1>
-        <p>Costo del pasaje: ₡430 • Horarios actualizados 2025</p>
+        <h1>Ruta Altos de Naranjo ↔ Atenas</h1>
+        <p>Coopetransatenas • Tarifa ₡430 • Horarios actualizados 2025</p>
     </div>
 
     <div class="container">
 
+        <!-- MAPA -->
+        <div class="map-section">
+            <h2>Mapa de la Ruta</h2>
+            <img src="../img/ruta-altosdenaranjo-atenas.png" alt="Ruta Altos de Naranjo↔ Atenas" class="ruta-img">
+            <div class="map-info">
+                <div class="info-box"><strong>Salida</strong> Mercado de Atenas<br><small>Atenas (centro)</small></div>
+                <div class="info-box"><strong>Llegada</strong>Al frente de laAntigua Escuela Altos De Naranjo San Isidro De Atenas <br><small>Fecosa</small></div>
+                <div class="info-box"><strong>Duración</strong> 45–55 minutos</div>
+                <div class="info-box"><strong>Tarifa 2025</strong> ₡430</div>
+            </div>
+        </div>
+
+        <!-- PESTAÑAS DE HORARIOS -->
         <div class="tabs">
-            <button class="tab-button active" onclick="openTab(event, 'lunes')">Lunes a Viernes</button>
-            <button class="tab-button" onclick="openTab(event, 'sabado')">Sábado</button>
-            <button class="tab-button" onclick="openTab(event, 'domingo')">Domingo y Feriado</button>
+            <button class="tab-button active" data-day="lunes_a_viernes">Lunes a Viernes</button>
+            <button class="tab-button" data-day="sabado">Sábado</button>
+            <button class="tab-button" data-day="domingo_y_feriados">Domingo y Feriado</button>
         </div>
 
-        <!-- LUNES A VIERNES -->
-        <div id="lunes" class="tab-content active">
-            <div class="grid">
-                <table>
-                    <thead><tr><th>Sale de Atenas</th></tr></thead>
-                    <tbody>
-                        <tr><td>5:35 am</td></tr>
-                        <tr><td>7:50 am <span class="nota">Alto M.</span></td></tr>
-                        <tr><td>9:15 am <span class="nota">Estan</span></td></tr>
-                        <tr><td>12:00 m <span class="nota">Estan</span></td></tr>
-                        <tr><td>2:30 pm <span class="nota">Estan</span></td></tr>
-                        <tr><td>4:30 pm <span class="nota">Estan</span></td></tr>
-                        <tr><td>5:30 pm</td></tr>
-                    </tbody>
-                </table>
-
-                <table>
-                    <thead><tr><th>Sale de Estanquillos</th></tr></thead>
-                    <tbody>
-                        <tr><td>5:00 am</td></tr>
-                        <tr><td>6:05 am</td></tr>
-                        <tr><td>8:05 am <span class="nota">Alto M.</span></td></tr>
-                        <tr><td>9:45 am</td></tr>
-                        <tr><td>12:30 pm</td></tr>
-                        <tr><td>3:00 pm</td></tr>
-                        <tr><td>5:00 pm</td></tr>
-                        <tr><td>6:00 pm</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- SÁBADO -->
-        <div id="sabado" class="tab-content">
-            <div class="grid">
-                <table>
-                    <thead><tr><th>Sale de Atenas</th></tr></thead>
-                    <tbody>
-                        <tr><td>6:00 am EST</td></tr>
-                        <tr><td>9:15 am EST</td></tr>
-                        <tr><td>12:00 m EST</td></tr>
-                        <tr><td>2:30 pm EST</td></tr>
-                        <tr><td>5:15 am EST</td></tr>
-                    </tbody>
-                </table>
-
-                <table>
-                    <thead><tr><th>Sale de Estanquillos</th></tr></thead>
-                    <tbody>
-                        <tr><td>6:30 am EST-AT</td></tr>
-                        <tr><td>9:45 am EST-AT</td></tr>
-                        <tr><td>12:30 pm EST-AT</td></tr>
-                        <tr><td>3:00 pm EST-AT</td></tr>
-                        <tr><td>5:45 am EST-AT</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- DOMINGO Y FERIADO -->
-        <div id="domingo" class="tab-content">
-            <div class="grid">
-                <table>
-                    <thead><tr><th>Sale de Atenas</th></tr></thead>
-                    <tbody>
-                        <tr><td>6:10 am EST</td></tr>
-                        <tr><td>12:00 m EST</td></tr>
-                        <tr><td>4:00 pm QH</td></tr>
-                    </tbody>
-                </table>
-
-                <table>
-                    <thead><tr><th>Sale de Estanquillos</th></tr></thead>
-                    <tbody>
-                        <tr><td>6:40 am EST-AT</td></tr>
-                        <tr><td>12:25 pm EST-AT</td></tr>
-                        <tr><td>4:30 pm EST-AT</td></tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- AQUÍ SE CARGAN LOS HORARIOS DESDE EL JSON -->
+        <div id="horarios-container" class="grid">
+            <!-- Todo se genera automáticamente con JavaScript -->
         </div>
 
     </div>
 
     <footer>
-        <p>© 2025 AteBus - Todos los derechos reservados | Orgullosamente Atenienses</p>
+        <p>© 2025 AteBus - Orgullosamente Atenienses • Información actualizada noviembre 2025</p>
     </footer>
 
-<script src="../javascript.js"></script>
+    <script>
+        const cont = document.getElementById('horarios-container');
+
+        function crearTabla(titulo, horarios) {
+            let tabla = `<table><thead><tr><th>${titulo}</th></tr></thead><tbody>`;
+            horarios.forEach(h => {
+                if (typeof h === 'string') {
+                    tabla += `<tr><td>${h} hs</td></tr>`;
+                } else {
+                    tabla += `<tr><td>${h.hora} hs <span class="nota">${h.nota}</span></td></tr>`;
+                }
+            });
+            tabla += `</tbody></table>`;
+            return tabla;
+        }
+
+        function mostrar(dia, data) {
+            const h = data.horarios[dia];
+            cont.innerHTML = 
+                crearTabla('Sale de Altos De Naranjo', h.desde_altosdenaranjo) + 
+                crearTabla('Sale de Atenas', h.desde_atenas);
+        }
+
+        // Cargar el JSON
+        fetch('../json/horario-altosdenaranjo-atenas.json')
+            .then(respuesta => respuesta.json())
+            .then(data => {
+                // Mostrar horarios de lunes a viernes por defecto
+                mostrar('lunes_a_viernes', data);
+
+                // Agregar evento a cada botón de pestaña
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.onclick = () => {
+                        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        mostrar(btn.getAttribute('data-day'), data);
+                    };
+                });
+            })
+            .catch(error => {
+                cont.innerHTML = `
+                    <div style="grid-column:1/-1; background:white; padding:40px; border-radius:10px; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+                        <h3 style="color:#e74c3c; margin-bottom:10px;">Error al cargar los horarios</h3>
+                        <p style="color:#7f8c8d; font-size:16px;">No se encontró el archivo: <strong>json/horario-altosdenaranjo-atenas.json</strong></p>
+                        <p style="color:#95a5a6; font-size:14px; margin-top:15px;">Verifica que el archivo exista en la carpeta correcta.</p>
+                    </div>
+                `;
+                console.error('Error al cargar JSON:', error);
+            });
+    </script>
+
 </body>
 </html>

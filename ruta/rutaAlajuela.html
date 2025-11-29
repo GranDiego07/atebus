@@ -107,7 +107,7 @@
             let tabla = `<table><thead><tr><th>${titulo}</th></tr></thead><tbody>`;
             horarios.forEach(h => {
                 if (typeof h === 'string') {
-                    tabla += `<tr><td>${h} hs</td></tr>`;
+                    tabla += `<tr><td>${h} </td></tr>`;
                 } else {
                     tabla += `<tr><td>${h.hora} hs <span class="nota">${h.nota}</span></td></tr>`;
                 }

@@ -73,10 +73,10 @@
         <!-- MAPA -->
         <div class="map-section">
             <h2>Mapa de la Ruta</h2>
-            <img src="../img/ruta-altosdenaranjo-atenas.png" alt="Ruta Altos de Naranjo↔ Atenas" class="ruta-img">
+            <img src="../img/ruta-altosdenaranjo-atenas.png" alt="Ruta Altos de Naranjo ↔ Atenas" class="ruta-img">
             <div class="map-info">
                 <div class="info-box"><strong>Salida</strong> Mercado de Atenas<br><small>Atenas (centro)</small></div>
-                <div class="info-box"><strong>Llegada</strong>Al frente de laAntigua Escuela Altos De Naranjo San Isidro De Atenas <br><small>Fecosa</small></div>
+                <div class="info-box"><strong>Llegada</strong>Al frente de la Antigua Escuela Altos De Naranjo San Isidro De Atenas</div>
                 <div class="info-box"><strong>Duración</strong> 45–55 minutos</div>
                 <div class="info-box"><strong>Tarifa 2025</strong> ₡430</div>
             </div>
@@ -107,7 +107,7 @@
             let tabla = `<table><thead><tr><th>${titulo}</th></tr></thead><tbody>`;
             horarios.forEach(h => {
                 if (typeof h === 'string') {
-                    tabla += `<tr><td>${h} hs</td></tr>`;
+                    tabla += `<tr><td>${h} </td></tr>`;
                 } else {
                     tabla += `<tr><td>${h.hora} hs <span class="nota">${h.nota}</span></td></tr>`;
                 }
