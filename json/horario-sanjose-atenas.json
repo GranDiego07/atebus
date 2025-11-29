@@ -6,16 +6,16 @@
 
   "horarios": {
     "lunes_a_viernes": {
-      "desde_sanjose": ["05:40","06:05","06:30","07:30","08:30","09:00","10:00","11:00","12:00","13:45","14:15","15:00","15:30","16:00","16:50",{"hora":"17:45","nota":"Ruta 27"},"18:00","19:00",{"hora":"20:30","nota":"Entra a Alajuela"},{"hora":"22:00","nota":"Entra a Alajuela"}],
-      "desde_atenas": ["04:50","05:50","07:00","08:00","09:00","10:30","12:00","13:30","14:00","14:30","15:15","16:00","17:30","18:30",{"hora":"20:30","nota":"continúa hacia San José"}]
+      "desde_sanjose": ["5:40 AM","06:05 AM","06:30 AM","07:30 AM","08:30 AM","09:00 AM","10:00 AM","11:00 AM","12:00 MD","1:45 PM","2:15 PM","3:00 PM","3:30 PM","4:00 PM","4:50 PM",{"hora":"5:45 PM","nota":"Ruta 27"},"6:00 PM","7:00 PM",{"hora":"8:30 PM","nota":"Entra a Alajuela"},{"hora":"10:00 PM","nota":"Entra a Alajuela"}],
+      "desde_atenas": ["4:50 AM","5:50 AM","7:00 AM","8:00 AM","9:00 AM","10:30 AM","12:00 MD","1:30 PM","2:00 PM","2:30 PM","3:15 PM","4:00 PM","5:30 PM",{"hora":"8:30 PM","nota":"continúa hacia San José"}]
     },
     "sabado": {
       "desde_sanjose": ["4:30 AM",{"hora":"5:00 AM","nota":"Entra a Alajuela"},"7:00 AM","8:00 AM","9:00 AM","10:30 AM","12:00 MD","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM",{"hora":"7:00 PM","nota":"Entra a Alajuela"}],
       "desde_atenas": ["6:00 AM","7:00 AM","9:00 AM","11:00 AM","12:00 MD","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM","7:00 PM",{"hora":"10:00 PM","nota":"Entra a Alajuela"}]
     },
     "domingo_y_feriados": {
-      "desde_sanjose": ["06:30","08:30","10:30","13:00","15:30","18:00"],
-      "desde_atenas": ["05:30","07:30","09:30","12:00","14:30","17:00"]
+      "desde_sanjose": ["6:30 AM","9:00 AM","10:00 AM","11:00 AM","1:00 PM","3:00 PM","4:30 PM","5:30 PM","7:00 PM",{"hora":"10:00 PM","nota":"Entra a Alajuela"}],
+      "desde_atenas": [{"hora":"5:00 AM","nota":"Entra a Alajuela"},"7:00 AM","8:00 AM","9:00 AM","10:30 AM","12:00 PM","2:00 PM","4:00 PM","5:00 PM","7:00 PM"]
     }
   }
 }

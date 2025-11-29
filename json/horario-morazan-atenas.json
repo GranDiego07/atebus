@@ -14,8 +14,8 @@
       "desde_atenas": ["5:45 AM","9:10 AM","12:00 MD","4:00 PM"]
     },
     "domingo_y_feriados": {
-      "desde_morazan": ["6:30 AM", "8:30 AM", "10:30 AM", "1:00 PM", "3:30 PM", "6:00 PM"],
-      "desde_atenas": ["5:30 AM", "7:30 AM", "9:30 AM", "12:00 PM", "2:30 PM", "5:00 PM"]
+      "desde_morazan": ["6:00 AM", "1:25 PM", "4:40 PM"],
+      "desde_atenas": ["12:00 MD", "4:00 PM"]
     }
   }
 }
