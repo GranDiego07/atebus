@@ -3,91 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horarios de Buses</title>
+    <meta name="description" content="Horarios actualizados 2025 de buses en Atenas, Costa Rica. Todas las rutas: Alajuela, San José, Palmares y más.">
+    <title>AteBus • Horarios de Buses en Atenas 2025</title>
     <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
 </head>
 <body>
-    <!-- Menú de navegación -->
+
+    <!-- NAVEGACIÓN -->
     <nav>
         <div class="nav-container">
-            <div class="logo">AteBus </div>
+            <div class="logo"><a href="index.html">AteBus</a></div>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#acerca">Acerca de</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#propuesta">Soluciones</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+                <li><a href="propuesta.html">Propuesta</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Encabezado -->
-    <div class="header" id="inicio">
-        <h1>Horarios de Buses en Atenas</h1>
-        <p>Bienvenidos a nuestra pagina de horario de buses de todo atenas.<br>
-        A continuacion en cada Ruta va a encontrar infornacion sobre horarios, precios y la ruta que traza</p>
-        <br>Fecha Actualizacion 27 Julio 2025
-    </div>
-
-    <!-- Contenido principal -->
-    <div class="container">
-        <div class="services-grid">
-            <!-- Card 1 -->
-            <div class="service-card">
-                <a href="ruta/rutaAlajuela.html" class="service-card"><h3>Ruta Alajuela</h3>
-            </a>
+    <!-- CARRUSEL PRINCIPAL -->
+    <div class="carrusel">
+        <div class="slides">
+            <div class="slide active">
+                <img src="img/paradacoopetransatenas.png" alt="Terminal de buses Atenas">
+                <div class="caption">
+                    <h2>Horarios actualizados 2025</h2>
+                    <p>Todas las rutas de Atenas en un solo lugar</p>
+                </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="service-card">
-                <a href="ruta/rutaSanjose.html" class="service-card"><h3>Ruta <br>San Jose</h3>
-            </a>
+            <div class="slide">
+                <img src="img/banner2.jpg" alt="Bus Coopetransatenas">
+                <div class="caption">
+                    <h2>Información confiable y oficial</h2>
+                    <p>Directo de Coopetransatenas R.L.</p>
+                </div>
             </div>
-
-            <!-- Card 3 -->
-            <div class="service-card">
-                <a href="ruta/rutaSantaEulalia.html"class="service-card"><h3>Ruta <br>Santa Eulalia</h3></a>
+            <div class="slide">
+                <img src="img/banner3.jpg" alt="Atenas centro">
+                <div class="caption">
+                    <h2>¡Siempre al día!</h2>
+                    <p>Actualización: 29 de noviembre 2025</p>
+                </div>
             </div>
-
-            <!-- Card 4 -->
-            <div class="service-card">
-                <a href="ruta/rutaMorazan.html"class="service-card"><h3>Ruta Morazan</h3></a>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="service-card">
-                <a href="ruta/rutaPalmares.html"class="service-card"><h3>Ruta Palmares</h3></a>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="service-card">
-                <a href="ruta/rutaPavas.html"class="service-card"><h3>Ruta Pavas</h3></a>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="service-card">
-                <a href="ruta/rutaAltosdeNaranjo.html"class="service-card"><h3>Ruta Altos de Naranjo</h3></a>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="service-card">
-                <a href="ruta/rutaCandelaria.html"class="service-card"><h3>Ruta Candelaria</h3></a>
-            </div>
-
-            <!-- Card 9 -->
-            <div class="service-card">
-                <a href="ruta/rutaEstanquillos.html"class="service-card"><h3>Ruta Estanquillos</h3></a>
-            </div>
-
-            <!-- Card 10 -->
-            <div class="service-card">
-                <a href="ruta/rutaLaBalsa.html"class="service-card"><h3>Ruta La Balsa</h3></a>
-            </div>
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </div>
 
-    <!-- Pie de página -->
-    <footer id="contacto">
-        <p>&copy; 2025 AtenasBus - Todos los derechos reservados | Contacto: info@atenasbus.com</p>
+    <!-- INTRODUCCIÓN AL PROBLEMA -->
+    <section class="intro container">
+        <div class="intro-content">
+            <h2>El problema que resolvemos</h2>
+            <p>En Atenas no existía una página web moderna, actualizada y fácil de usar con los horarios reales de buses.</p>
+            <p>La gente perdía tiempo buscando papelitos, preguntando en grupos de Facebook o llegando tarde porque la información estaba desactualizada o incompleta.</p>
+            <p><strong>AteBus</strong> es la solución definitiva: una plataforma web rápida, bonita, accesible desde cualquier celular y siempre con los horarios oficiales al día.</p>
+        </div>
+    </section>
+
+    <!-- RUTAS DISPONIBLES (cargadas desde JSON) -->
+    <section class="container rutas-section">
+        <h2>Rutas Disponibles</h2>
+        <div id="rutas-container" class="services-grid">
+            <!-- Se llenan automáticamente con JavaScript -->
+            <div style="grid-column:1/-1; text-align:center; padding:60px; color:#7f8c8d;">
+                <p>Cargando rutas...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 <strong>AteBus</strong> • Proyecto creado con amor para los atenienses</p>
     </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ========= CARRUSEL =========
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            slideIndex++;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+
+        // Navegación manual
+        document.querySelector('.next').addEventListener('click', () => {
+            slideIndex++;
+            if (slideIndex >= document.querySelectorAll('.slide').length) slideIndex = 0;
+            showSlides();
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            slideIndex--;
+            if (slideIndex < 0) slideIndex = document.querySelectorAll('.slide').length - 1;
+            showSlides();
+        });
+
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                slideIndex = i;
+                showSlides();
+            });
+        });
+
+        // Auto-avance cada 7 segundos
+        setInterval(showSlides, 7000);
+
+        // ========= CARGAR RUTAS DESDE JSON =========
+        fetch('json/rutas.json')
+            .then(response => {
+                if (!response.ok) throw new Error('No se encontró rutas.json');
+                return response.json();
+            })
+            .then(data => {
+                const container = document.getElementById('rutas-container');
+                container.innerHTML = ''; // Limpiar el "Cargando..."
+
+                data.rutas.forEach(ruta => {
+                    const card = document.createElement('div');
+                    card.className = 'service-card';
+                    card.innerHTML = `
+                        <a href="${ruta.archivo}">
+                            <h3>${ruta.nombre}</h3>
+                            <p>${ruta.info}</p>
+                        </a>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => {
+                document.getElementById('rutas-container').innerHTML = `
+                    <div style="grid-column:1/-1; background:white; padding:50px; border-radius:12px; text-align:center; color:#e74c3c;">
+                        <h3>Error al cargar las rutas</h3>
+                        <p>Asegúrate de tener el archivo <strong>json/rutas.json</strong></p>
+                    </div>
+                `;
+                console.error(err);
+            });
+    </script>
 </body>
 </html>

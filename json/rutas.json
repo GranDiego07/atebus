@@ -1,0 +1,14 @@
+{
+    "rutas": [
+        {"nombre": "Alajuela", "info": "₡1 335", "archivo": "ruta/rutaAlajuela.html"},
+        {"nombre": "San José", "info": "₡1 335", "archivo": "ruta/rutaSanjose.html"},
+        {"nombre": "Palmares", "info": "₡ 430", "archivo": "ruta/rutaPalmares.html"},
+        {"nombre": "Santa Eulalia", "info": "₡430", "archivo": "ruta/rutaSantaEulalia.html"},
+        {"nombre": "Morazán", "info": "₡430", "archivo": "ruta/rutaMorazan.html"},
+        {"nombre": "Pavas", "info": "₡430", "archivo": "ruta/rutaPavas.html"},
+        {"nombre": "Altos de Naranjo", "info": "₡430", "archivo": "ruta/rutaAltosdeNaranjo.html"},
+        {"nombre": "Candelaria", "info": "₡430", "archivo": "ruta/rutaCandelaria.html"},
+        {"nombre": "Estanquillos", "info": "₡430", "archivo": "ruta/rutaEstanquillos.html"},
+        {"nombre": "La Balsa", "info": "₡480", "archivo": "ruta/rutaLaBalsa.html"}
+    ]
+}
