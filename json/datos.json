@@ -1,0 +1,13 @@
+{
+  "author": {
+    "name": "Dr. Alejandro Ramírez Gómez",
+    "photo": "img/perfil.jpg",
+    "email": "alejandro.ramirez@universidad.edu",
+    "description": "Doctor en Ingeniería de Software por la Universidad Nacional. Más de 15 años de experiencia en desarrollo web full-stack, arquitectura de microservicios y transformación digital. Investigador principal en el Laboratorio de Innovación Tecnológica y profesor titular en el Departamento de Sistemas. Autor de 3 libros y más de 40 publicaciones internacionales."
+  },
+  "institution": {
+    "name": "Universidad Tecnológica Nacional",
+    "logo": "img/logo-institucion.png",
+    "description": "Institución líder en formación tecnológica con más de 50 años de trayectoria. Cuenta con 12 campus en todo el país y programas acreditados internacionalmente."
+  }
+}

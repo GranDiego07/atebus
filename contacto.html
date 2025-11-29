@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h2>Mi Portafolio</h2>
+            <ul>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="proposal.html">Propuesta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h1>Contacto</h1>
+            <form id="contactForm">
+                <label>Nombre completo *</label>
+                <input type="text" id="name" required>
+
+                <label>Correo electrónico *</label>
+                <input type="email" id="email" required>
+
+                <label>Asunto *</label>
+                <input type="text" id="subject" required>
+
+                <label>Mensaje *</label>
+                <textarea id="message" rows="6" required></textarea>
+
+                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                <br>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </div>
+
+        <div id="map"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>¡Mensaje enviado correctamente!</h2>
+            <p><strong>Nombre:</strong> <span id="modalName"></span></p>
+            <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+            <p><strong>Asunto:</strong> <span id="modalSubject"></span></p>
+            <p><strong>Mensaje:</strong> <span id="modalMessage"></span></p>
+            <button onclick="document.getElementById('successModal').style.display='none'">Cerrar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Todos los derechos reservados</p>
+    </footer>
+
+    <script src="js/contact.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY_AQUI&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            const ubicacion = { lat: -34.6037, lng: -58.3816 }; // Ej: Buenos Aires
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: ubicacion,
+            });
+            new google.maps.Marker({
+                position: ubicacion,
+                map: map,
+                title: "Aquí estoy"
+            });
+        }
+    </script>
+</body>
+</html>
