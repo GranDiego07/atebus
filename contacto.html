@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Contacto - AteBus</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
         <nav>
-            <h2>Mi Portafolio</h2>
+            <h2>AteBus • Horarios Atenas</h2>
             <ul>
-                <li><a href="about.html">Acerca de</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                <li><a href="proposal.html">Propuesta</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="propuesta.html">Propuesta</a></li>
             </ul>
         </nav>
     </header>
@@ -22,18 +23,20 @@
     <div class="container">
         <div class="card">
             <h1>Contacto</h1>
+            <p>¿Tienes sugerencias, correcciones de horarios o quieres reportar un cambio? ¡Escríbenos!</p>
+            
             <form id="contactForm">
-                <label>Nombre completo *</label>
-                <input type="text" id="name" required>
+                <label>Nombre *</label>
+                <input type="text" id="name" placeholder="Tu nombre completo" required>
 
                 <label>Correo electrónico *</label>
-                <input type="email" id="email" required>
+                <input type="email" id="email" placeholder="tucorreo@ejemplo.com" required>
 
                 <label>Asunto *</label>
-                <input type="text" id="subject" required>
+                <input type="text" id="subject" placeholder="Ej: Cambio de horario Buses de Iván" required>
 
                 <label>Mensaje *</label>
-                <textarea id="message" rows="6" required></textarea>
+                <textarea id="message" rows="6" placeholder="Escribe aquí tu mensaje..." required></textarea>
 
                 <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
                 <br>
@@ -41,13 +44,17 @@
             </form>
         </div>
 
-        <div id="map"></div>
+        <div class="card">
+            <h2>Ubicación de Salidas - Atenas</h2>
+            <p>Puntos principales de salida de Coopetransatenas y Buses de Iván</p>
+            <div id="map"></div>
+        </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal de confirmación -->
     <div class="modal" id="successModal">
         <div class="modal-content">
-            <h2>¡Mensaje enviado correctamente!</h2>
+            <h2>¡Mensaje enviado con éxito!</h2>
             <p><strong>Nombre:</strong> <span id="modalName"></span></p>
             <p><strong>Email:</strong> <span id="modalEmail"></span></p>
             <p><strong>Asunto:</strong> <span id="modalSubject"></span></p>
@@ -57,24 +64,40 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Todos los derechos reservados</p>
+        <p>© 2025 AteBus - Diego Granados • Por y para Atenas, Alajuela</p>
     </footer>
 
-    <script src="js/contact.js"></script>
+    <!-- Validaciones y modal -->
+    <script src="contact.js"></script>
+
+    <!-- Mapa real de Atenas, Costa Rica -->
     <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY_AQUI&callback=initMap" async defer></script>
     <script>
         function initMap() {
-            const ubicacion = { lat: -34.6037, lng: -58.3816 }; // Ej: Buenos Aires
+            const atenas = { lat: 10.0751, lng: -84.3787 }; // Coordenadas reales de Atenas, Alajuela
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
-                center: ubicacion,
+                zoom: 14,
+                center: atenas,
+                mapTypeId: 'roadmap'
             });
+
+            // Marcador: Estación Coopetransatenas (frente a la iglesia)
             new google.maps.Marker({
-                position: ubicacion,
+                position: { lat: 10.0745, lng: -84.3785 },
                 map: map,
-                title: "Aquí estoy"
+                title: "Estación Coopetransatenas"
+            });
+
+            // Marcador: Pulpería Central (salida Buses de Iván)
+            new google.maps.Marker({
+                position: { lat: 10.0748, lng: -84.3790 },
+                map: map,
+                title: "Salida Buses de Iván"
             });
         }
     </script>
+
+    <!-- Carga dinámica de datos (autor/institución) -->
+    <script src="javascript.js"></script>
 </body>
 </html>

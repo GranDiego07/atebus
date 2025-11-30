@@ -3,55 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propuesta</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Propuesta - AteBus</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <h2>Mi Portafolio</h2>
+            <h2>AteBus • Horarios Atenas</h2>
             <ul>
-                <li><a href="about.html">Acerca de</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                <li><a href="proposal.html">Propuesta</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="propuesta.html">Propuesta</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
         <div class="card">
-            <h1>Propuesta de Solución Tecnológica</h1>
-            <p>Plataforma integral de gestión académica y administrativa con inteligencia artificial</p>
+            <h1>AteBus - Todos los horarios de buses de Atenas</h1>
+            <p>Información real y actualizada de Coopetransatenas y Buses de Iván. ¡Sin Facebook, sin pulperías!</p>
 
-            <img src="img/propuesta1.jpg" alt="Diagrama de arquitectura" style="width:100%; border-radius:10px; margin:20px 0;">
+            <h2>Rutas disponibles</h2>
+            <div id="rutas-container" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem;"></div>
 
-            <h2>Demostración en video</h2>
-            <video controls style="width:100%; border-radius:10px;">
-                <source src="img/propuesta2.mp4" type="video/mp4">
-                Tu navegador no soporta video.
-            </video>
-
-            <h2 style="margin-top:2rem;">Características interactivas</h2>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; margin-top:1rem;">
-                <div class="card" onclick="this.style.background='#667eea'; this.style.color='white';">
-                    <h3>✅ Dashboard Inteligente</h3>
-                    <p>Análisis predictivo de deserción estudiantil</p>
-                </div>
-                <div class="card" onclick="alert('Módulo de admisiones activado')">
-                    <h3>✅ Admisión Digital</h3>
-                    <p>Proceso 100% online con firma digital</p>
-                </div>
-                <div class="card" onclick="this.innerHTML='<h3>¡Activado!</h3><p>Chatbot 24/7 funcionando</p>'">
-                    <h3>✅ Asistente IA</h3>
-                    <p>Chatbot con procesamiento de lenguaje natural</p>
-                </div>
-            </div>
+            <h2 id="horario-detalle" style="margin-top:3rem;"></h2>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Todos los derechos reservados</p>
+        <p>© 2025 AteBus - Diego Granados</p>
     </footer>
-    <script src="js/script.js"></script>
+
+    <script src="javascript.js"></script>
 </body>
 </html>
