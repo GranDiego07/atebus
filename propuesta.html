@@ -4,39 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propuesta - AteBus</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Usamos el mismo y único CSS bonito del index -->
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <header>
-    <div class="nav-container">
-        <a href="index.html" class="site-title">AteBus • Horarios Atenas</a>
-        <nav>
+
+    <!-- NAVEGACIÓN idéntica al index -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="AteBus Logo"></a></div>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="acercade.html">Acerca de</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="propuesta.html">Propuesta</a></li>
             </ul>
-        </nav>
-    </div>
-</header>
-
-    <div class="container">
-        <div class="card">
-            <h1>AteBus - Todos los horarios de buses de Atenas</h1>
-            <p>Información real y actualizada de Coopetransatenas y Buses de Iván. ¡Sin Facebook, sin pulperías!</p>
-
-            <h2>Rutas disponibles</h2>
-            <div id="rutas-container" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem;"></div>
-
-            <h2 id="horario-detalle" style="margin-top:3rem;"></h2>
         </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container" style="margin-top: 4rem; margin-bottom: 6rem;">
+        <div class="intro-content"> <!-- reutilizo la cajita blanca bonita del index -->
+            <h1 style="font-size: 40px; margin-bottom: 20px; color: #2c3e50;">
+                AteBus – Todos los horarios de buses de Atenas
+            </h1>
+            <p style="font-size: 19px; color: #555;">
+                Información real y actualizada de Coopetransatenas y Buses de Iván.<br>
+                ¡Sin Facebook, sin pulperías, sin papelitos perdidos!
+            </p>
+        </div>
+
+        <!-- RUTAS DISPONIBLES – AHORA SÍ SE VE EXACTAMENTE IGUAL QUE EN INDEX -->
+        <section class="rutas-section">
+            <h2>Rutas Disponibles</h2>
+            <div id="rutas-container" class="services-grid">
+                <!-- Aquí se cargan automáticamente las tarjetas -->
+            </div>
+        </section>
+
+        <h2 id="horario-detalle" style="margin-top: 5rem;"></h2>
     </div>
 
+    <!-- FOOTER idéntico -->
     <footer>
-        <p>© 2025 AteBus - Diego Granados</p>
+        <p>© 2025 <strong>AteBus</strong> • Proyecto creado con amor para los atenienses</p>
     </footer>
 
-    <script src="javascript.js"></script>
+    <!-- SCRIPT para cargar las rutas (el mismo que tenías) -->
+    <script>
+        fetch('json/rutas.json')
+            .then(r => r.json())
+            .then(data => {
+                const container = document.getElementById('rutas-container');
+                container.innerHTML = '';
+                
+                data.rutas.forEach(ruta => {
+                    container.innerHTML += `
+                        <div class="service-card">
+                            <a href="${ruta.archivo}">
+                                <h3>${ruta.nombre}</h3>
+                                <p>${ruta.info}</p>
+                            </a>
+                        </div>
+                    `;
+                });
+            })
+            .catch(() => {
+                document.getElementById('rutas-container').innerHTML = 
+                    '<div style="grid-column:1/-1;background:white;padding:50px;border-radius:12px;text-align:center;color:#e74c3c;"><h3>Error: No se encontró json/rutas.json</h3></div>';
+            });
+    </script>
 </body>
 </html>
