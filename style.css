@@ -1,6 +1,6 @@
 /* ============================================================
    ATEBUS - ESTILOS COMPLETOS 2025
-   Header exactamente como tu última captura + todo el diseño anterior
+   Header nuevo: texto blanco a la izquierda + menú a la derecha
    ============================================================ */
 
 * {
@@ -17,66 +17,73 @@ body {
     min-height: 100vh;
 }
 
-/* ============================================================
-   HEADER - EXACTO COMO TU ÚLTIMA CAPTURA (logo izq + menú der)
-============================================================ */
-
+/* ====================== HEADER NUEVO ====================== */
 header {
     background-color: #2c3e50;
-    padding: 18px 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 22px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .nav-container {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;   /* título izq - menú der */
     align-items: center;
-    flex-wrap: wrap;
 }
 
-/* LOGO A LA IZQUIERDA */
-.logo a {
-    display: flex;
-    align-items: center;
+/* TÍTULO A LA IZQUIERDA - BLANCO */
+.site-title {
+    color: #ffffff;                   /* blanco puro */
+    font-size: 32px;
+    font-weight: bold;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.logo img {
-    height: 90px;           /* tamaño exacto como en tu captura */
-    width: auto;
-    display: block;
+.site-title:hover {
+    color: #3498db;
 }
 
-.logo a:hover {
-    transform: scale(1.05);
-}
-
-/* MENÚ A LA DERECHA */
+/* MENÚ A LA DERECHA - BLANCO */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 45px;              /* separación idéntica a tu captura */
+    gap: 45px;
     align-items: center;
 }
 
 nav ul a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-size: 17px;
     font-weight: 500;
-    padding: 8px 0;
     transition: color 0.3s ease;
+    padding: 5px 0;
 }
 
-nav ul a:hover {
+nav a:hover {
     color: #3498db;
+}
+
+/* ====================== RESPONSIVE HEADER ====================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px 20px;
+        text-align: center;
+    }
+    .site-title {
+        font-size: 28px;
+    }
+    nav ul {
+        gap: 30px;
+    }
 }
 
 /* ============================================================
@@ -88,7 +95,7 @@ nav ul a:hover {
     width: 100%;
     height: 600px;
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 50px 0;
 }
 
 .slides {
@@ -102,7 +109,7 @@ nav ul a:hover {
     width: 100%;
     height: 100%;
     position: relative;
-    flex-shrink: 0;
+    flex-shrink: 0 0 100%;
 }
 
 .slide img {
@@ -116,7 +123,7 @@ nav ul a:hover {
     position: absolute;
     bottom: 100px;
     left: 50px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0,0,0,0.7);
     padding: 30px 40px;
     border-radius: 15px;
     max-width: 650px;
@@ -129,40 +136,32 @@ nav ul a:hover {
     color: white;
     margin-bottom: 12px;
     font-weight: 700;
-    line-height: 1.2;
 }
 
 .caption p {
     font-size: 22px;
     color: #ecf0f1;
-    margin: 0;
 }
 
-/* Botones carrusel */
+/* Botones y puntos del carrusel */
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     color: white;
     border: none;
     padding: 20px 18px;
     font-size: 32px;
     cursor: pointer;
-    z-index: 10;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 .prev { left: 20px; }
 .next { right: 20px; }
+.prev:hover, .next:hover { background: #3498db; transform: translateY(-50%) scale(1.1); }
 
-.prev:hover, .next:hover {
-    background: #3498db;
-    transform: translateY(-50%) scale(1.1);
-}
-
-/* Puntos indicadores */
 .dots {
     position: absolute;
     bottom: 25px;
@@ -170,25 +169,24 @@ nav ul a:hover {
     transform: translateX(-50%);
     display: flex;
     gap: 12px;
-    z-index: 10;
 }
 
 .dot {
-    height: 14px;
     width: 14px;
-    background-color: rgba(255, 255, 255, 0.5);
+    height: 14px;
+    background: rgba(255,255,255,0.5);
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: 0.4s;
 }
 
 .dot.active, .dot:hover {
-    background-color: #3498db;
+    background: #3498db;
     transform: scale(1.2);
 }
 
 /* ============================================================
-   CONTENEDORES GENERALES
+   CONTENEDORES GENERALES + INTRO + RUTAS + FOOTER
    ============================================================ */
 
 .container {
@@ -197,14 +195,7 @@ nav ul a:hover {
     padding: 0 20px;
 }
 
-/* ============================================================
-   SECCIÓN INTRO
-   ============================================================ */
-
-.intro {
-    padding: 60px 0;
-}
-
+.intro { padding: 60px 0; }
 .intro-content {
     background: white;
     text-align: center;
@@ -212,32 +203,11 @@ nav ul a:hover {
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     padding: 40px;
 }
+.intro-content h2 { font-size: 36px; color: #2c3e50; margin-bottom: 20px; }
+.intro-content p { font-size: 18px; color: #555; max-width: 900px; margin: 0 auto 16px; }
+.intro-content p strong { color: #3498db; }
 
-.intro-content h2 {
-    font-size: 36px;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.intro-content p {
-    font-size: 18px;
-    color: #555;
-    max-width: 900px;
-    margin: 0 auto 16px;
-}
-
-.intro-content p strong {
-    color: #3498db;
-}
-
-/* ============================================================
-   SECCIÓN RUTAS / GRID
-   ============================================================ */
-
-.rutas-section {
-    padding: 60px 0;
-}
-
+.rutas-section { padding: 60px 0; }
 .rutas-section h2 {
     text-align: center;
     font-size: 32px;
@@ -255,10 +225,10 @@ nav ul a:hover {
 .service-card {
     background: white;
     border-radius: 14px;
-    overflow: hidden;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
+    transition: all 0.4s;
     border: 1px solid #eee;
+    overflow: hidden;
 }
 
 .service-card a {
@@ -276,21 +246,8 @@ nav ul a:hover {
     border-color: #3498db;
 }
 
-.service-card h3 {
-    color: #2c3e50;
-    font-size: 21px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.service-card p {
-    color: #7f8c8d;
-    font-size: 15px;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
+.service-card h3 { color: #2c3e50; font-size: 21px; font-weight: 600; margin-bottom: 8px; }
+.service-card p { color: #7f8c8d; font-size: 15px; }
 
 footer {
     background-color: #2c3e50;
@@ -301,34 +258,17 @@ footer {
     font-size: 16px;
 }
 
-footer p {
-    margin: 10px 0;
-}
-
-footer strong {
-    color: #3498db;
-}
+footer strong { color: #3498db; }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE GENERAL
    ============================================================ */
 
 @media (max-width: 1024px) {
     .services-grid { grid-template-columns: repeat(3, 1fr); }
-    .caption h2 { font-size: 40px; }
-    .caption p { font-size: 20px; }
 }
 
 @media (max-width: 768px) {
-    /* Header en columna */
-    .nav-container {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px 0;
-    }
-    .logo img { height: 80px; }
-    nav ul { gap: 30px; }
-
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .carrusel { height: 60vh; }
     .caption { bottom: 60px; left: 20px; right: 20px; padding: 20px; }
@@ -342,5 +282,4 @@ footer strong {
     .carrusel { height: 55vh; }
     .caption h2 { font-size: 28px; }
     .caption p { font-size: 16px; }
-    .prev, .next { padding: 14px; font-size: 24px; }
 }
