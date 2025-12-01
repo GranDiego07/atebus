@@ -76,7 +76,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtpf87BD6Frm16_InkiLdB6Vg3UCX6XKc&callback=initMap" async defer></script>
     <script>
         function initMap() {
-            const atenas = { lat: 10.0751, lng: -84.3787 }; // Coordenadas reales de Atenas, Alajuela
+            const atenas = { lat: 9.978696902364353, lng: -84.38193851110408 }; // Coordenadas reales de Atenas, Alajuela
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 14,
                 center: atenas,
@@ -85,14 +85,14 @@
 
             // Marcador: Estación Coopetransatenas (frente a la iglesia)
             new google.maps.Marker({
-                position: { lat: 10.0745, lng: -84.3785 },
+                position: { lat:9.978696000584103, lng: -84.38204491272298 },
                 map: map,
                 title: "Estación Coopetransatenas"
             });
 
             // Marcador: Pulpería Central (salida Buses de Iván)
             new google.maps.Marker({
-                position: { lat: 10.0748, lng: -84.3790 },
+                position: { lat:9.978402916198984, lng:-84.38160881295711 },
                 map: map,
                 title: "Salida Buses de Iván"
             });
