@@ -10,9 +10,9 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         alert('El nombre enmascarado debe evocar misterio (mín. 5 caracteres)');
         return;
     }
-    if (!email.includes('@') || !email.includes('.') || !email.includes('atebus')) { // Temático
-        alert('Usa un engranaje de comunicación válido de Atebus');
-        return;
+    if (!email.includes('@') || !email.includes('.')) {
+    alert('Sin @ ni punto el mensaje se queda en la terminal… ¡ponlo bien el correo!');
+    return;
     }
     if (captcha.length === 0) {
         alert('Verifica tu lealtad con el captcha revolucionario');
